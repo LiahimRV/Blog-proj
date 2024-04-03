@@ -1,19 +1,18 @@
-import { Header, SearchInput } from "./components";
+import { Main } from "./pages";
 // import { Routes } from "react-router-dom";
 import styled from "styled-components";
 
 export const Blog = () => {
   return (
     <BLogContainer>
-      <Page>
-        <Header />
-        <SearchInput />
-      </Page>
+      <PageContent>
+        <Main />
+      </PageContent>
     </BLogContainer>
   );
 };
 
-const Page = styled.div`
+const PageContent = styled.div`
   width: 1140px;
 `;
 
