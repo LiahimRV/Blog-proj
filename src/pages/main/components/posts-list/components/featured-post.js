@@ -1,3 +1,4 @@
+import { Button } from "../../../../../components";
 import styled from "styled-components";
 
 const FeaturedPostContainer = ({ className, postData }) => {
@@ -13,7 +14,7 @@ const FeaturedPostContainer = ({ className, postData }) => {
         </div>
         <div className="post-content__subtitle">postData.subtitle</div>
         <div className="post-content__footer">
-          <button>Read more</button>
+          <Button />
         </div>
       </div>
     </div>
