@@ -1,20 +1,25 @@
 import { Button } from "../../../../../components";
 import styled from "styled-components";
 
-const FeaturedPostContainer = ({ className, postData }) => {
+const FeaturedPostContainer = ({
+  className,
+  title,
+  body,
+  handleReadMoreButton,
+}) => {
   return (
     <div className={className}>
       <img alt="img" src="https://placehold.co/1140x600" />
       <div className="post-content">
         <div className="post-content__title">
-          <div className="post-content__title-text">postData.title</div>
+          <div className="post-content__title-text">{title}</div>
           <div className="post-content__title-frame">
             <p>up</p> <p>down</p>
           </div>
         </div>
-        <div className="post-content__subtitle">postData.subtitle</div>
+        <div className="post-content__subtitle">{body}</div>
         <div className="post-content__footer">
-          <Button />
+          <Button onClick={handleReadMoreButton} />
         </div>
       </div>
     </div>
@@ -24,6 +29,15 @@ const FeaturedPostContainer = ({ className, postData }) => {
 export const FeaturedPost = styled(FeaturedPostContainer)`
   max-width: 1140px;
   margin: 0 0 20px 0;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(244, 244, 244, 1);
+  border-radius: 12px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04),
+    0px 10px 20px rgba(0, 0, 0, 0.04);
+
+  & img {
+    border-radius: 12px 12px 0 0;
+  }
 
   & .post-content__title {
     display: flex;

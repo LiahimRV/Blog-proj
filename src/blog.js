@@ -23,6 +23,6 @@ const BLogContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   min-width: 1400px;
-  min-height: 2330px;
+  height: 2100px;
   background: rgba(255, 255, 255, 1);
 `;

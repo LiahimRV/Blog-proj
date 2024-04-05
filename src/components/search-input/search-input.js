@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
-const SearchInputContainer = ({ className }) => {
+const SearchInputContainer = ({ className, value, onChange }) => {
   return (
     <div className={className}>
       <div className="input-wrapper">
         <div>1</div>
-        <input placeholder="Поиск по названию статьи"></input>
+        <input
+          placeholder="Поиск по названию статьи"
+          value={value}
+          type="text"
+          onChange={onChange}
+        />
       </div>
     </div>
   );
@@ -16,6 +21,7 @@ export const SearchInput = styled(SearchInputContainer)`
   height: 48px;
   border: 1px solid #919eab52;
   border-radius: 6px;
+  margin: 0 0 15px 0;
 
   & .input-wrapper {
     height: 34px;
