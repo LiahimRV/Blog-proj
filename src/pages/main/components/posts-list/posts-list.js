@@ -39,11 +39,16 @@ const PostsListContainer = ({ className }) => {
           key={groupedPosts.singlePost.id}
           body={groupedPosts.singlePost.body}
           title={groupedPosts.singlePost.title}
+          negativeReactionCount={groupedPosts.singlePost.negativeReactionCount}
+          positiveReactionCount={groupedPosts.singlePost.positiveReactionCount}
         />
       )}
       <div className="another-posts">
         {groupedPosts.multiplePosts.map((post) => (
-          <PostContent key={post.id} title={post.title} />
+          <>
+            <PostContent key={post.id} title={post.title} postId={post.id} negReact={post.negativeReactionCount} posReact={post.positiveReactionCount} />
+          </>
+
         ))}
       </div>
     </div>

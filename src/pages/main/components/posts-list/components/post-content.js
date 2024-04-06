@@ -1,7 +1,7 @@
-import { Button } from "../../../../../components";
+import { BlockWithReactions, Button } from "../../../../../components";
 import styled from "styled-components";
 
-const PostContentContainer = ({ className, title, id }) => {
+const PostContentContainer = ({ className, title, postId, negReact, posReact }) => {
   return (
     <div className={className}>
       <img alt="img" src="https://placehold.co/558x273" />
@@ -11,7 +11,7 @@ const PostContentContainer = ({ className, title, id }) => {
         </div>
         <div className="post-content__footer">
           <div className="grade-icons-frame">
-            <p>up</p> <p>down</p>
+            <BlockWithReactions postId={postId} negativeReactionCount={negReact} positiveReactionCount={posReact} />
           </div>
           <Button />
         </div>

@@ -1,4 +1,4 @@
-import { Button } from "../../../../../components";
+import { BlockWithReactions, Button } from "../../../../../components";
 import styled from "styled-components";
 
 const FeaturedPostContainer = ({
@@ -6,6 +6,8 @@ const FeaturedPostContainer = ({
   title,
   body,
   handleReadMoreButton,
+  positiveReactionCount,
+  negativeReactionCount
 }) => {
   return (
     <div className={className}>
@@ -14,7 +16,7 @@ const FeaturedPostContainer = ({
         <div className="post-content__title">
           <div className="post-content__title-text">{title}</div>
           <div className="post-content__title-frame">
-            <p>up</p> <p>down</p>
+            <BlockWithReactions positiveReactionCount={positiveReactionCount} negativeReactionCount={negativeReactionCount} />
           </div>
         </div>
         <div className="post-content__subtitle">{body}</div>

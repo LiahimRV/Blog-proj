@@ -9,7 +9,13 @@ export const loadPostsAsync = () => {
       );
 
       if (response.status === 200) {
-        dispatch(setPostsData(response.data));
+        const postsWithReactions = response.data.map((post) => {
+          const positiveReactionCount = Math.floor(Math.random() * 51);
+          const negativeReactionCount = Math.floor(Math.random() * 51);
+          return { ...post, positiveReactionCount, negativeReactionCount };
+        });
+
+        dispatch(setPostsData(postsWithReactions));
       } else {
         throw new Error("Failed to fetch");
       }
