@@ -1,25 +1,19 @@
 import { FeaturedPost, PostContent } from "./components";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { selectPosts } from "../../../../selectors";
+import { useSelector, useDispatch } from "react-redux";
+import { selectPosts, selectSearchTerm } from "../../../../selectors";
 import { SearchInput } from "../../../../components";
+import { setSearchTerm } from "../../../../actions";
 import styled from "styled-components";
 
 const PostsListContainer = ({ className }) => {
   const posts = useSelector(selectPosts);
   const slicedPostsArray = posts.slice(0, 5);
-  const [filteredPosts, setFilteredPosts] = useState(slicedPostsArray);
-  const [search, setSearch] = useState("");
+  const searchTerm = useSelector(selectSearchTerm);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (search === "") {
-      setFilteredPosts(slicedPostsArray);
-    } else {
-      setFilteredPosts((prevFilteredPosts) =>
-        prevFilteredPosts.filter((post) => post.title.includes(search))
-      );
-    }
-  }, [search, slicedPostsArray]);
+  const filteredPosts = slicedPostsArray.filter((post) =>
+    post.title.includes(searchTerm)
+  );
 
   const groupedPosts = filteredPosts.reduce(
     (acc, post) => {
@@ -32,9 +26,13 @@ const PostsListContainer = ({ className }) => {
     { singlePost: null, multiplePosts: [] }
   );
 
+  const handleSearch = (e) => {
+    dispatch(setSearchTerm(e.target.value));
+  };
+
   return (
     <div className={className}>
-      <SearchInput value={search} onChange={(e) => setSearch(e.target.value)} />
+      <SearchInput value={searchTerm} onChange={handleSearch} />
 
       {groupedPosts.singlePost && (
         <FeaturedPost
