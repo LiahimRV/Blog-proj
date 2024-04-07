@@ -8,7 +8,8 @@ const FeaturedPostContainer = ({
   body,
   positiveReactionCount,
   negativeReactionCount,
-  postId
+  postId,
+  reactionStatus
 }) => {
   console.log(positiveReactionCount)
   return (
@@ -21,7 +22,9 @@ const FeaturedPostContainer = ({
             <BlockWithReactions
               postId={postId}
               positiveReactionCount={positiveReactionCount}
-              negativeReactionCount={negativeReactionCount} />
+              negativeReactionCount={negativeReactionCount}
+              reactionStatus={reactionStatus}
+            />
           </div>
         </div>
         <div className="post-content__subtitle">{body}</div>

@@ -9,11 +9,12 @@ const BlockWithReactionsContainer = ({
     postId,
     positiveReactionCount,
     negativeReactionCount,
+    reactionStatus,
 }) => {
     const dispatch = useDispatch();
 
-    const [positiveReactionClicked, setPositiveReactionClicked] = useState(false);
-    const [negativeReactionClicked, setNegativeReactionClicked] = useState(false);
+    const [positiveReactionClicked, setPositiveReactionClicked] = useState(reactionStatus === 'positive');
+    const [negativeReactionClicked, setNegativeReactionClicked] = useState(reactionStatus === 'negative');
 
 
     const handlePositiveReaction = () => {

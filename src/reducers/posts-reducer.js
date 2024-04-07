@@ -15,7 +15,6 @@ export const postsReducer = (state = initialPostsState, action) => {
       const { postId, reactionType } = action.payload;
       const updatedPosts = state.posts.map(post => {
         if (post.id === postId) {
-
           let positiveCount = post.positiveReactionCount;
           let negativeCount = post.negativeReactionCount;
 
@@ -33,6 +32,7 @@ export const postsReducer = (state = initialPostsState, action) => {
             ...post,
             positiveReactionCount: positiveCount,
             negativeReactionCount: negativeCount,
+            reactionStatus: reactionType,
           };
         }
         return post;

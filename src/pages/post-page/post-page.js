@@ -6,16 +6,14 @@ import styled from "styled-components"
 
 const PostPageContainer = ({ className}) => {
     const { id } = useParams();
-    console.log(id)
     const posts = useSelector(selectPosts)
     const post = posts.find(post => Number(id) === post.id)
-    console.log(post.negativeReactionCount)
 
     return (
         <div className={className}>
             <div className="post-page-header">
                 <div className="return-back-button"> Return back</div>
-                <BlockWithReactions postId={post.id} negativeReactionCount={post.negativeReactionCount} positiveReactionCount={post.positiveReactionCount} />
+                <BlockWithReactions postId={post.id} negativeReactionCount={post.negativeReactionCount} positiveReactionCount={post.positiveReactionCount} reactionStatus={post.reactionStatus} />
             </div>
             <div className="post-page-body">
                 <p className="post-page-body__title">

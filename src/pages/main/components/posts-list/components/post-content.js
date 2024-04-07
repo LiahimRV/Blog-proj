@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { BlockWithReactions, Button } from "../../../../../components";
 import styled from "styled-components";
 
-const PostContentContainer = ({ className, title, postId, negReact, posReact }) => {
+const PostContentContainer = ({ className, title, postId, negReact, posReact, reactionStatus }) => {
 
 
 
@@ -15,7 +15,7 @@ const PostContentContainer = ({ className, title, postId, negReact, posReact }) 
         </div>
         <div className="post-content__footer">
           <div className="grade-icons-frame">
-            <BlockWithReactions postId={postId} negativeReactionCount={negReact} positiveReactionCount={posReact} />
+            <BlockWithReactions postId={postId} negativeReactionCount={negReact} positiveReactionCount={posReact} reactionStatus={reactionStatus} />
           </div>
           <Link to={`/post/${postId}`}>
             <Button />
