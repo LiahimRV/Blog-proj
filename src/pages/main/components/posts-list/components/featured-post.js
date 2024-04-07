@@ -10,6 +10,7 @@ const FeaturedPostContainer = ({
   negativeReactionCount,
   postId
 }) => {
+  console.log(positiveReactionCount)
   return (
     <div className={className}>
       <img alt="img" src="https://placehold.co/1140x600" />
@@ -17,7 +18,10 @@ const FeaturedPostContainer = ({
         <div className="post-content__title">
           <div className="post-content__title-text">{title}</div>
           <div className="post-content__title-frame">
-            <BlockWithReactions positiveReactionCount={positiveReactionCount} negativeReactionCount={negativeReactionCount} />
+            <BlockWithReactions
+              postId={postId}
+              positiveReactionCount={positiveReactionCount}
+              negativeReactionCount={negativeReactionCount} />
           </div>
         </div>
         <div className="post-content__subtitle">{body}</div>

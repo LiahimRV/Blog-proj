@@ -1,7 +1,7 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, } from "react-redux";
 import { setPostReaction } from "../../actions";
 import { Icon } from "../icon/icon";
-import { useState } from "react";
+import { useState, } from "react";
 import styled from "styled-components";
 
 const BlockWithReactionsContainer = ({
@@ -14,6 +14,7 @@ const BlockWithReactionsContainer = ({
 
     const [positiveReactionClicked, setPositiveReactionClicked] = useState(false);
     const [negativeReactionClicked, setNegativeReactionClicked] = useState(false);
+
 
     const handlePositiveReaction = () => {
         if (!positiveReactionClicked) {

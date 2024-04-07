@@ -1,8 +1,21 @@
 import { Main, PostPage } from "./pages";
 import { Routes, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react";
+import { loadPostsAsync } from "./actions";
+import { selectPosts } from "./selectors";
 import styled from "styled-components";
 
 export const Blog = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadPostsAsync());
+  }, [dispatch]);
+
+  const posts = useSelector(selectPosts);
+  console.log(posts);
   return (
     <BLogContainer>
       <PageContent>
