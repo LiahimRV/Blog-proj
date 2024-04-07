@@ -1,13 +1,14 @@
 import { BlockWithReactions, Button } from "../../../../../components";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const FeaturedPostContainer = ({
   className,
   title,
   body,
-  handleReadMoreButton,
   positiveReactionCount,
-  negativeReactionCount
+  negativeReactionCount,
+  postId
 }) => {
   return (
     <div className={className}>
@@ -21,7 +22,9 @@ const FeaturedPostContainer = ({
         </div>
         <div className="post-content__subtitle">{body}</div>
         <div className="post-content__footer">
-          <Button onClick={handleReadMoreButton} />
+          <Link to={`/post/${postId}`}>
+            <Button />
+          </Link>
         </div>
       </div>
     </div>

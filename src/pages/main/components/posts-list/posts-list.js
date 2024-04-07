@@ -37,6 +37,7 @@ const PostsListContainer = ({ className }) => {
       {groupedPosts.singlePost && (
         <FeaturedPost
           key={groupedPosts.singlePost.id}
+          postId={groupedPosts.singlePost.id}
           body={groupedPosts.singlePost.body}
           title={groupedPosts.singlePost.title}
           negativeReactionCount={groupedPosts.singlePost.negativeReactionCount}

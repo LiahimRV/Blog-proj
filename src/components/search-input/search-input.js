@@ -1,12 +1,22 @@
 import styled from "styled-components";
+import { Icon } from "../icon/icon";
 
 const SearchInputContainer = ({ className, value, onChange }) => {
   return (
     <div className={className}>
       <div className="input-wrapper">
-        <div>1</div>
+        <Icon
+          id="fa-search"
+          margin="0 8px 0 0 "
+          color="black"
+          transform="disable"
+          hooverColor="disable"
+          cursor="initial"
+
+
+        />
         <input
-          placeholder="Поиск по названию статьи"
+          placeholder="Поиск по названию статьи..."
           value={value}
           type="text"
           onChange={onChange}
@@ -27,11 +37,11 @@ export const SearchInput = styled(SearchInputContainer)`
     height: 34px;
     display: flex;
     flex-direction: row;
-    margin: 8px 0 8px 22px;
+    margin: 6px 0 6px 10px;
   }
 
   & input {
-    font: 400 16px/24px Roboto, sans-serif;
+    font: 400 18px/24px Roboto, sans-serif;
     min-width: 500px;
     border: none;
     outline: none;

@@ -6,7 +6,7 @@ import { loadPostsAsync } from "../../actions";
 import { selectPosts } from "../../selectors";
 import styled from "styled-components";
 
-const MainContainer = () => {
+const MainContainer = ({ className }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,11 +17,13 @@ const MainContainer = () => {
   console.log(posts);
 
   return (
-    <>
+    <div className={className}>
       <Header />
       <PostsList />
-    </>
+    </div>
   );
 };
 
-export const Main = styled(MainContainer)``;
+export const Main = styled(MainContainer)`
+
+`;

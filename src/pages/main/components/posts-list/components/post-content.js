@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
 import { BlockWithReactions, Button } from "../../../../../components";
 import styled from "styled-components";
 
 const PostContentContainer = ({ className, title, postId, negReact, posReact }) => {
+
+
+
   return (
     <div className={className}>
       <img alt="img" src="https://placehold.co/558x273" />
@@ -13,7 +17,9 @@ const PostContentContainer = ({ className, title, postId, negReact, posReact }) 
           <div className="grade-icons-frame">
             <BlockWithReactions postId={postId} negativeReactionCount={negReact} positiveReactionCount={posReact} />
           </div>
-          <Button />
+          <Link to={`/post/${postId}`}>
+            <Button />
+          </Link>
         </div>
       </div>
     </div>

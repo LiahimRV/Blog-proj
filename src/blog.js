@@ -1,12 +1,15 @@
-import { Main } from "./pages";
-// import { Routes } from "react-router-dom";
+import { Main, PostPage } from "./pages";
+import { Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 
 export const Blog = () => {
   return (
     <BLogContainer>
       <PageContent>
-        <Main />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/post/:id" element={<PostPage />} />
+        </Routes>
       </PageContent>
     </BLogContainer>
   );
@@ -23,6 +26,5 @@ const BLogContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   min-width: 1400px;
-  height: 2100px;
   background: rgba(255, 255, 255, 1);
 `;
