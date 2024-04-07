@@ -70,5 +70,6 @@ export const BlockWithReactions = styled(BlockWithReactionsContainer)`
   .positive-reactions-counter {
     font-size: 18px;
     margin: 10px 16px 12px 7px;
+    cursor: default;
   }
 `;
