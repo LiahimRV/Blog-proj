@@ -2,29 +2,38 @@ import { Main, PostPage } from "./pages";
 import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react";
-import { loadPostsAsync } from "./actions";
-import { selectPosts } from "./selectors";
+import { loadPostsAsync, setLoading } from "./actions";
+import { selectLoader } from "./selectors";
+import { PageNotFound, Loader } from "./components";
 import styled from "styled-components";
 
-export const Blog = () => {
-
+export const BlogContainer = ({ className }) => {
   const dispatch = useDispatch();
 
+  const loader = useSelector(selectLoader);
+
   useEffect(() => {
-    dispatch(loadPostsAsync());
+    dispatch(setLoading(true));
+
+    dispatch(loadPostsAsync()).then(() => {
+      dispatch(setLoading(false));
+    });
   }, [dispatch]);
 
-  const posts = useSelector(selectPosts);
-  console.log(posts);
   return (
-    <BLogContainer>
-      <PageContent>
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/post/:id" element={<PostPage />} />
-        </Routes>
-      </PageContent>
-    </BLogContainer>
+    <div className={className}>
+      {loader ? (
+        <Loader />
+      ) : (
+        <PageContent>
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/post/:id" element={<PostPage />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </PageContent>
+      )}
+    </div>
   );
 };
 
@@ -32,12 +41,14 @@ const PageContent = styled.div`
   width: 1140px;
 `;
 
-const BLogContainer = styled.div`
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  min-width: 1400px;
-  background: rgba(255, 255, 255, 1);
-`;
+export const Blog = styled(BlogContainer)`
+box-sizing: border-box;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+min-width: 1400px;
+background: rgba(255, 255, 255, 1);
+`
+
+

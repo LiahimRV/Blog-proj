@@ -7,7 +7,7 @@ const SearchInputContainer = ({ className, value, onChange }) => {
       <div className="input-wrapper">
         <Icon
           id="fa-search"
-          margin="0 8px 0 0 "
+          margin="0 12px 0 6px "
           color="black"
           transform="disable"
           hooverColor="disable"

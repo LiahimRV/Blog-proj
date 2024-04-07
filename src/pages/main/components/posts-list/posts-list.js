@@ -61,8 +61,7 @@ export const PostsList = styled(PostsListContainer)`
   min-height: 1929px;
 
   & .another-posts {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    column-count: 2; 
+    column-gap: 24px; 
   }
 `;

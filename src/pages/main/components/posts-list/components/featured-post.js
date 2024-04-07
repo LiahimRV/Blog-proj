@@ -11,7 +11,6 @@ const FeaturedPostContainer = ({
   postId,
   reactionStatus
 }) => {
-  console.log(positiveReactionCount)
   return (
     <div className={className}>
       <img alt="img" src="https://placehold.co/1140x600" />
@@ -39,8 +38,9 @@ const FeaturedPostContainer = ({
 };
 
 export const FeaturedPost = styled(FeaturedPostContainer)`
-  max-width: 1140px;
+  width: 1140px;
   margin: 0 0 20px 0;
+  min-height: 929px;
   background: rgba(255, 255, 255, 1);
   border: 1px solid rgba(244, 244, 244, 1);
   border-radius: 12px;
@@ -49,6 +49,23 @@ export const FeaturedPost = styled(FeaturedPostContainer)`
 
   & img {
     border-radius: 12px 12px 0 0;
+  }
+
+  & .post-content__title-text {
+    width: 959px;
+    min-height: 32px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    font: 700 28px/32px Roboto, sans-serif;
+  }
+
+  & .post-content {
+   width: 1140px;
+   height:  325px;
+   padding: 24px 16px 32px 16px;
+   gap: 32px;
+
   }
 
   & .post-content__title {
@@ -64,6 +81,13 @@ export const FeaturedPost = styled(FeaturedPostContainer)`
     display: flex;
     flex-direction: row-reverse;
     margin: 0 20px 0 0;
+  }
+
+  & .post-content__subtitle {
+    width: 1108px;
+    height: 132px;
+    margin: 20px 0 10px 0;
+    font: 400 24px/32px Roboto, sans-serif;
   }
 
   & button {

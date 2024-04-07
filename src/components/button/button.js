@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const ButtonContainer = ({ className }) => {
-  return <button className={className}>Read more</button>;
+  return <button className={className}>Читать далее</button>;
 };
 
 export const Button = styled(ButtonContainer)`

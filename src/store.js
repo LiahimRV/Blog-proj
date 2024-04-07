@@ -1,11 +1,12 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
-import { postsReducer, searchTermReducer, reactionsReducer } from "./reducers";
+import { postsReducer, searchTermReducer, reactionsReducer, loaderReducer } from "./reducers";
 import { thunk } from "redux-thunk";
 
 const reducer = combineReducers({
   posts: postsReducer,
   searchTerm: searchTermReducer,
-  reactedPosts: reactionsReducer
+  reactedPosts: reactionsReducer,
+  loading: loaderReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
